@@ -8,6 +8,7 @@ App({
         wx.setStorageSync('logs', logs);
         wx.login({
             success: function (res) {
+                _this.globalData.code = res.code
                 console.log(res.code);
             },
         });

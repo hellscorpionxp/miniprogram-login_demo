@@ -1,5 +1,7 @@
 <!--logs.wxml-->
 <view class="container log-list">
+  <button wx:if="{{!hasPhoneInfo && canIUse}}" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber"> 授权手机号 </button>
+  <text class="log-item">{{phoneNumber}}</text>
   <block wx:for="{{logs}}" wx:for-item="log">
     <text class="log-item">{{index + 1}}. {{log}}</text>
   </block>
