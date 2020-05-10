@@ -44,11 +44,18 @@ Page({
     }
   },
   getUserInfo(e: any) {
-    console.log(e)
+    // console.log(e)
+    // console.log(e.detail.userInfo.nickName);
+    // console.log(e.detail.userInfo.avatarUrl);
+    // console.log(e.detail.userInfo.gender);
+    // console.log(e.detail.userInfo.country);
+    // console.log(e.detail.userInfo.province);
+    // console.log(e.detail.userInfo.city);
     app.globalData.userInfo = e.detail.userInfo
     this.setData({
       userInfo: e.detail.userInfo,
       hasUserInfo: true,
+      motto: 'Hello ' + e.detail.userInfo.nickName,
     })
   },
 })
