@@ -24,7 +24,7 @@ Page({
     var _this = this;
     if (app.globalData.userInfo) {
       wx.request({
-        url: 'http://localhost:8080/rest/auth/login/weapp?appId=wxa37994884ff4a74f&appSecret=17138aa4be5a678bf424fb413dda84a1',
+        url: 'http://localhost:8080/rest/usr/login/weapp?appId=wxa37994884ff4a74f&scyCode=17138aa4be5a678bf424fb413dda84a1',
         method: 'POST',
         header: {
           'Content-Type': 'application/x-www-form-urlencoded'
@@ -43,7 +43,7 @@ Page({
         success: function (res) {
           // console.log(res);
           _this.setData({
-            phoneNumber: 'Hello ' + res.data.phone,
+            phoneNumber: 'Hello ' + res.data.data.phone,
             hasPhoneInfo: true,
           });
         }
