@@ -8,6 +8,7 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    canIUseGetUserProfile: true,
   },
   // 事件处理函数
   bindViewTap() {
@@ -56,6 +57,23 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true,
       motto: 'Hello ' + e.detail.userInfo.nickName,
+    })
+  },
+  getUserProfile(e: any) {
+    // 微信变更获取用户信息API
+    wx.getUserProfile({
+      desc: '用于完善会员资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
+      success: (res) => {
+        app.globalData.userInfo = res.userInfo
+        this.setData({
+          userInfo: res.userInfo,
+          hasUserInfo: true,
+          motto: 'Hello ' + res.userInfo.nickName,
+        })
+      },
+      fail: (res) => {
+        console.log(res)
+      }
     })
   },
 })

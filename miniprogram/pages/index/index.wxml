@@ -1,7 +1,11 @@
 <!--index.wxml-->
 <view class="container">
   <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 授权登录 </button>
+    <block wx:if="{{!hasUserInfo && canIUse}}">
+      <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 授权登录1 </button>
+      <button wx:else open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 授权登录 </button>
+    </block>
+    <!--button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 授权登录 </button-->
     <block wx:else>
       <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
