@@ -24,7 +24,9 @@ Page({
     var _this = this;
     if (app.globalData.userInfo) {
       wx.request({
-        url: 'http://localhost:8080/rest/usr/login/weapp?appId=wxa37994884ff4a74f&scyCode=17138aa4be5a678bf424fb413dda84a1',
+        // url: 'http://localhost:8080/rest/usr/login/weapp?appId=wxa37994884ff4a74f&scyCode=17138aa4be5a678bf424fb413dda84a1',
+        // url: 'http://localhost:8080/rest/usr/login/weapp?appId=wxc895f464c47eb14a',
+        url: 'http://gpostg.gfhcinfo.com/gpo-api/rest/usr/login/weapp?appId=wxc895f464c47eb14a',
         method: 'POST',
         header: {
           'Content-Type': 'application/x-www-form-urlencoded'
